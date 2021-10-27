@@ -1,0 +1,29 @@
+.card {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid black;
+    white-space: pre-wrap;
+    text-align: center;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.35);
+}
+
+
+.card_img {
+    width: 100%;
+}
+
+.card_title {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.card_description {
+    width: 100%;
+    padding: 15px;
+}

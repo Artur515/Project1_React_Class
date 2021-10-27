@@ -1,0 +1,18 @@
+.basket {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
+}
+
+.basket_image {
+    width: 50%;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .basket_image {
+        margin: 10px;
+    }
+
+}

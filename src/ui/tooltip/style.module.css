@@ -1,0 +1,16 @@
+.tooltip {
+    position: relative;
+}
+
+.tooltip .tooltip_text {
+    width: 40px;
+    height: 40px;
+    background-color: #7a3636;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+}

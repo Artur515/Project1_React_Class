@@ -1,0 +1,19 @@
+.input {
+    min-width: 250px;
+    padding: 10px;
+    border: 0;
+    border-bottom: 2px solid black;
+    background: transparent;
+}
+
+
+.input_wrapper {
+    margin: 10px 0 10px 0;
+}
+
+@media (max-width: 600px) {
+    .input {
+        padding: 10px;
+    }
+
+}
