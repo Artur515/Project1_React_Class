@@ -13,10 +13,15 @@ class BasketProducts extends Component {
                            checked={this.props.basketOpenList}
                            onChange={this.props.handleOpenCloseBasket}/>
                     <div className={style.basket_list}>
-                        <div onClick={this.props.handleOpenCloseBasket} className='cursor'><Close/></div>
+                        <div onClick={this.props.handleOpenCloseBasket} className='cursor'>
+                            <Close/>
+                        </div>
                         {this.props.basketList.length ? this.props.basketList.map((product) => {
-                            return <BasketCard handleDelete={this.props.handleDelete} key={product.id}
-                                               product={product.product} id={product.id}/>
+                            return <BasketCard
+                                handleDelete={this.props.handleDelete}
+                                key={product.id}
+                                product={product.product}
+                                id={product.id}/>
                         }) : <div>Basket is empty</div>}
                     </div>
                 </div>

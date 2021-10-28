@@ -66,7 +66,7 @@ class App extends Component {
 
     handleSearch = (string) => {
         let searchResult = this.state.productList.filter((product) => {
-            return product.ingredients.toLowerCase().includes(string) || product.title.toLowerCase().includes(string)//start with
+            return product.title.toLowerCase().includes(string)//start with
         })
         this.setState({filteredProductList: searchResult})
     }

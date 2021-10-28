@@ -18,11 +18,11 @@ class Basket extends Component {
 
 
     render() {
-        return (<div className={style.basket}>
-                <img
-                    onClick={this.handleOpenCloseBasket}
-                    src={basket} alt="basket"
-                    className={style.basket_image}/>
+        return (
+            <div className={style.basket}>
+                <img onClick={this.handleOpenCloseBasket}
+                     src={basket} alt="basket"
+                     className={style.basket_image}/>
                 {this.props.basketItems.length > 0 && <Tooltip items={this.props.basketItems.length}/>}
                 <BasketProducts
                     handleDelete={this.props.handleDelete}

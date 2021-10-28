@@ -10,7 +10,7 @@ const BasketCard = (props) => {
                 <p>Quantity</p>
                 <p>Total: {props.product?.price} $</p>
             </div>
-            <div className='cursor' onClick={()=>props.handleDelete(props.id)}>Delete</div>
+            <div className='cursor' onClick={() => props.handleDelete(props.id)}>Delete</div>
         </div>
     )
 }
