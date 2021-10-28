@@ -1,33 +1,17 @@
 import React, {Component} from 'react';
 import Wrapper from "./container/wrapper/Wrapper";
-import './App.css'
 import Header from "./components/header/Header";
 import CardList from "./components/cardList/CardList";
-import fakeImageToCard from './images/multfilm_lyagushka_32117.jpg'
+import {getAllProducts} from "./api";
+import './App.css'
+import Loader from "./ui/loader/Loader";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            productList: [{
-                id: 1,
-                image: fakeImageToCard,
-                title: "AAAAA",
-                price: 12,
-                ingredients: "aaaaaaaaaaaaaaaaaaaaaa"
-            }, {
-                id: 2,
-                image: fakeImageToCard,
-                title: "BBBBB",
-                price: 12,
-                ingredients: "bbbbbbbbbbbbbbbbbbbbbb"
-            }, {
-                id: 3,
-                image: fakeImageToCard,
-                title: "CCCCC",
-                price: 12,
-                ingredients: "sdcasldvksdlkvlks dvlkdfvldf svlsdflvjsdlkfdv ssssssssssssssss sssssssssssssssssss"
-            }],
+            load: false,
+            productList: [],
             basketItems: [],
             filteredProductList: []
         };
@@ -35,8 +19,14 @@ class App extends Component {
 
 
     componentDidMount() {
-        this.setState({filteredProductList: this.state.productList})
+        this.setState({load: true})
+        getAllProducts()
+            .then(response => this.setState({productList: response.data}))
+            .then(() => this.setState({filteredProductList: this.state.productList}))
+            .catch(e => console.log(e))
+            .finally(() => this.setState({load: false}))
     }
+
 
     handleAddToBasket = (obj) => {
         this.setState({basketItems: [...this.state.basketItems, obj]})
@@ -58,7 +48,9 @@ class App extends Component {
                     handleSearch={this.handleSearch}
                     basketItems={this.state.basketItems}/>
                 <Wrapper>
-                    <CardList list={this.state.filteredProductList} handleAddToBasket={this.handleAddToBasket}/>
+                    {this.state.load ? <Loader/> :
+                        <CardList list={this.state.filteredProductList} handleAddToBasket={this.handleAddToBasket}/>
+                    }
                 </Wrapper>
             </>
         )

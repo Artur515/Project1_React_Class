@@ -2,9 +2,9 @@
     max-width: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     margin: 10px;
     border: 1px solid black;
+    border-radius: 8px;
     white-space: pre-wrap;
     text-align: center;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.35);
@@ -13,6 +13,15 @@
 
 .card_img {
     width: 100%;
+    object-fit: cover;
+}
+
+.card_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card_title {
@@ -23,7 +32,11 @@
 }
 
 
+
 .card_description {
-    width: 100%;
-    padding: 15px;
+    height: 70px;
+    overflow: hidden;
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to bottom, #000, #5b5b5b, rgba(0, 0, 0, 0));
 }

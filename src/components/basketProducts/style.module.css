@@ -1,5 +1,5 @@
 
-.asekandutdGinevitable {
+.basket_menu {
     display: block;
     position: absolute;
     top: 48px;
@@ -10,7 +10,7 @@
     opacity: 0.9;
 }
 
-.asekandutdGinevitable input {
+.basket_menu input {
     display: none;
     position: absolute;
     top: -5px;
@@ -20,31 +20,31 @@
     -webkit-touch-callout: none;
 }
 
-.asekandutdGinevitable span:first-child {
+.basket_menu span:first-child {
     transform-origin: 0% 0%;
 }
 
-.asekandutdGinevitable span:nth-last-child(2) {
+.basket_menu span:nth-last-child(2) {
     transform-origin: 0% 100%;
 }
 
-.asekandutdGinevitable input:checked ~ span {
+.basket_menu input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: #1b1919;
 }
 
-.asekandutdGinevitable input:checked ~ span:nth-last-child(3) {
+.basket_menu input:checked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-.asekandutdGinevitable input:checked ~ span:nth-last-child(2) {
+.basket_menu input:checked ~ span:nth-last-child(2) {
     opacity: 1;
     transform: rotate(-45deg) translate(0, -1px);
 }
 
-.groupseparate {
+.basket_list {
     position: fixed;
     width: 320px;
     height: 120vh;
@@ -59,7 +59,7 @@
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0, 0.77);
 }
 
-.asekandutdGinevitable input:checked ~ ul {
+.basket_menu input:checked ~ ul {
     transform: scale(1.0, 1.0);
     opacity: 1;
 }
