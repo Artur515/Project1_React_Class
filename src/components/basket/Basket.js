@@ -25,6 +25,7 @@ class Basket extends Component {
                     className={style.basket_image}/>
                 {this.props.basketItems.length > 0 && <Tooltip items={this.props.basketItems.length}/>}
                 <BasketProducts
+                    handleDelete={this.props.handleDelete}
                     basketList={this.props.basketItems}
                     handleOpenCloseBasket={this.handleOpenCloseBasket}
                     basketOpenList={this.state.basketOpenList}/>
@@ -35,12 +36,3 @@ class Basket extends Component {
 
 export default Basket;
 
-// function Basket(props) {
-//     console.log(props)
-//     return <div className={style.basket}>
-//         <img src={basket} alt="basket" className={style.basket_image}/>
-//         {props.basketProducts.length > 0 && <Tooltip items={props.basketProducts.length}/>}
-//     </div>
-// }
-//
-// export default Basket;

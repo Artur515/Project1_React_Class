@@ -8,7 +8,7 @@ function Header(props) {
         <div className={style.header}>
             <h1>{props.title}</h1>
             <Input handleSearch={props.handleSearch}/>
-            <Basket basketItems={props.basketItems}/>
+            <Basket handleDelete={props.handleDelete} basketItems={props.basketItems} />
         </div>
     )
 }

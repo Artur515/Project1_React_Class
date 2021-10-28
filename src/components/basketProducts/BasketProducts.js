@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import style from './style.module.css'
 import Close from "../../ui/close/Close";
+import BasketCard from "../basketCard/BasketCard";
 
 
 class BasketProducts extends Component {
@@ -11,12 +12,13 @@ class BasketProducts extends Component {
                     <input type="checkbox"
                            checked={this.props.basketOpenList}
                            onChange={this.props.handleOpenCloseBasket}/>
-                    <ul className={style.basket_list}>
+                    <div className={style.basket_list}>
                         <div onClick={this.props.handleOpenCloseBasket} className='cursor'><Close/></div>
-                        {this.props.basketList.map((product) => {
-                            return <div>{product.title}</div>
-                        })}
-                    </ul>
+                        {this.props.basketList.length ? this.props.basketList.map((product) => {
+                            return <BasketCard handleDelete={this.props.handleDelete} key={product.id}
+                                               product={product.product} id={product.id}/>
+                        }) : <div>Basket is empty</div>}
+                    </div>
                 </div>
             </nav>
         );

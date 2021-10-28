@@ -7,11 +7,12 @@ class CardList extends Component {
     render() {
         return (
             <>
-                {this.props.list.map((product) => {
-                    return <Card product={product}
-                                 key={product.id}
-                                 handleAddToBasket={this.props.handleAddToBasket}/>
-                })}
+                {this.props.list.length === 0 ?
+                    <div>No results found. Try another request </div> : this.props.list.map((product) => {
+                        return <Card product={product}
+                                     key={product.id}
+                                     handleAddToBasket={this.props.handleAddToBasket}/>
+                    })}
             </>
         );
     }

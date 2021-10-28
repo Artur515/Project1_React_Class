@@ -59,7 +59,7 @@
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0, 0.77);
 }
 
-.basket_menu input:checked ~ ul {
+.basket_menu input:checked ~ div {
     transform: scale(1.0, 1.0);
     opacity: 1;
 }
