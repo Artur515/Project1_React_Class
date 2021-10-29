@@ -2,10 +2,17 @@ import React, {Component} from 'react';
 import Wrapper from "./container/wrapper/Wrapper";
 import Header from "./components/header/Header";
 import CardList from "./components/cardList/CardList";
-import {deleteBasketProduct, getAllProducts, getBasketProducts, postProductToBasket} from "./api";
+import {
+    deleteBasketProduct,
+    getAllProducts,
+    getBasketProducts,
+    postProductToBasket,
+    updateBasketProductWithId
+} from "./api";
 import './App.css'
 import Loader from "./ui/loader/Loader";
 import ErrorPage from "./pages/ErrorPage";
+
 
 class App extends Component {
     constructor(props) {
@@ -34,39 +41,32 @@ class App extends Component {
 
 
     handleAddToBasket = async (obj) => {
-        const itemIndex = this.state.basketItems.findIndex((item) => console.log(item));
-
-        if (itemIndex < 0) {
-            const newItem = {
-                ...obj,
-                quantity: 1,
+        const newObj = {...obj, quantity: 1}
+        const basketProduct = this.state.basketItems.find((product) => product.product.id === obj.id)
+        if (!basketProduct) {
+            try {
+                await postProductToBasket(newObj)
+                const {data} = await getBasketProducts()
+                this.setState({basketItems: data})
+            } catch (error) {
+                this.setState({error: error})
             }
-            this.setState([...this.state.basketItems, newItem]);
         } else {
-            const newOrder = this.state.basketItems.map((orderItem, index) => {
-                if (index === itemIndex) {
-                    return {
-                        ...orderItem,
-                        quantity: orderItem.quantity + 1
-                    };
-                } else {
-                    return orderItem;
-                }
-            });
-            this.setState(newOrder);
-        }
-        try {
-            await postProductToBasket(obj)
+            const updatedBasketProduct = this.state.basketItems.find(product => product.product.id === obj.id);
+            await updateBasketProductWithId({
+                ...updatedBasketProduct,
+                product: {...updatedBasketProduct.product, quantity: updatedBasketProduct.product.quantity + 1}
+            })
             const {data} = await getBasketProducts()
             this.setState({basketItems: data})
-        } catch (e) {
-            console.log(e)
         }
     }
 
+
     handleSearch = (string) => {
-        let searchResult = this.state.productList.filter((product) => {
-            return product.title.toLowerCase().includes(string)//start with
+
+        const searchResult = this.state.productList.filter((product) => {
+            return product.title.toLowerCase().includes(string)
         })
         this.setState({filteredProductList: searchResult})
     }

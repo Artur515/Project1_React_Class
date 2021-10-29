@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import style from './style.module.css'
 import Close from "../../ui/close/Close";
 import BasketCard from "../basketCard/BasketCard";
+import {countTotal} from "../../helper";
 
 
 class BasketProducts extends Component {
@@ -16,6 +17,7 @@ class BasketProducts extends Component {
                         <div onClick={this.props.handleOpenCloseBasket} className='cursor'>
                             <Close/>
                         </div>
+                        <div className={style.basket_total}>Total: {countTotal(this.props.basketList)} $</div>
                         {this.props.basketList.length ? this.props.basketList.map((product) => {
                             return <BasketCard
                                 handleDelete={this.props.handleDelete}

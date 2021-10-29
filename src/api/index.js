@@ -13,6 +13,11 @@ export const postProductToBasket = (product) => {
 }
 
 
+export const updateBasketProductWithId = (product) => {
+    return axios.put(BASE_API + `/basket/${product.id}`, product)
+}
+
+
 export const getBasketProducts = () => {
     return axios.get(BASE_API + '/basket')
 }
