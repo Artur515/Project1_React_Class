@@ -66,7 +66,7 @@ class App extends Component {
     handleSearch = (string) => {
 
         const searchResult = this.state.productList.filter((product) => {
-            return product.title.toLowerCase().includes(string)
+            return product.title.toLowerCase().substring(0, 4).includes(string)
         })
         this.setState({filteredProductList: searchResult})
     }

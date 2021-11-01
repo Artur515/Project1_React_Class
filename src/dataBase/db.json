@@ -109,21 +109,5 @@
       ]
     }
   ],
-  "basket": [
-    {
-      "product": {
-        "id": "2",
-        "title": "Chicken",
-        "price": "20",
-        "image": "https://www.themealdb.com/images/category/chicken.png",
-        "ingredients": [
-          "Meat",
-          "Tomato",
-          "Oil"
-        ],
-        "quantity": 1
-      },
-      "id": 1
-    }
-  ]
+  "basket": []
 }

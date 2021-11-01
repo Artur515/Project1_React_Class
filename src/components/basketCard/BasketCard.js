@@ -1,4 +1,5 @@
 import style from './style.module.css'
+import {subTotal} from "../../helper";
 
 
 const BasketCard = (props) => {
@@ -6,8 +7,8 @@ const BasketCard = (props) => {
         <div className={style.basket_item}>
             <div>
                 <h3>Title: {props.product?.title}</h3>
-                <h4>Quantity: {props.product?.quantity}</h4>
-                <h4>Price: {props.product?.price} $</h4>
+                <h4>Quantity: {props.product?.quantity} * {props.product?.price}$=
+                    {subTotal(props.product?.quantity, props.product?.price)} $</h4>
             </div>
             <div className='cursor' onClick={() => props.handleDelete(props.id)}>
                 <img
