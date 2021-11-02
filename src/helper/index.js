@@ -1,5 +1,5 @@
 export const customCountLength = (array) => {
-    return array.map(product => product.product.quantity).reduce((current, accum) => current + accum, 0)
+    return array.map(product => product.product.quantity).reduce((accum, current) => accum + current, 0)
 }
 
 
